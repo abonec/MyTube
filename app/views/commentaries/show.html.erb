@@ -1,0 +1,16 @@
+<% title "Commentary" %>
+
+<p>
+  <strong>Body:</strong>
+  <%= @commentary.body %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @commentary.user_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_commentary_path(@commentary) %> |
+  <%= link_to "Destroy", @commentary, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", commentaries_path %>
+</p>

@@ -1,0 +1,15 @@
+<% title "Videos" %>
+
+<% @videos.each do |video| %>
+
+  <p>
+    <h3 id="heading"><%= video.source_file_name %></h3>
+    <br/>
+    <%= link_to(image_tag(video.thumbnail_url), video) if video.thumbnail_file_name %>
+    </p>
+
+<% end %>
+
+<% if user_signed_in? %>
+  <p><%= link_to "New Video", new_video_path %></p>
+<% end %>

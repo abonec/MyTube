@@ -1,0 +1,21 @@
+one:
+  body: MyText
+  user_id: 1
+
+two:
+  body: MyText
+  user_id: 1
+
+
+# == Schema Information
+#
+# Table name: commentaries
+#
+#  id         :integer         not null, primary key
+#  body       :text
+#  user_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  video_id   :integer
+#
+

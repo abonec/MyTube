@@ -1,0 +1,19 @@
+<% title "Commentaries" %>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th>User</th>
+  </tr>
+  <% for commentary in @commentaries %>
+    <tr>
+      <td><%= commentary.body %></td>
+      <td><%= commentary.user_id %></td>
+      <td><%= link_to "Show", commentary %></td>
+      <td><%= link_to "Edit", edit_commentary_path(commentary) %></td>
+      <td><%= link_to "Destroy", commentary, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Commentary", new_commentary_path %></p>

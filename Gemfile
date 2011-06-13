@@ -2,18 +2,27 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.8'
 gem 'paperclip'
-
+gem 'aasm'
+gem 'streamio-ffmpeg'
+gem 'daemons'
+gem 'russian', :git => "git://github.com/yaroslav/russian.git"
+gem 'devise'
 
 
 
 group :development do 
   gem 'nifty-generators'
+  gem 'annotate'
 end
 
 group :development, :test do
   gem 'guard'
-  gem 'rb-inotify' if RUBY_PLATFORM =~ /linux/i
+  if RUBY_PLATFORM =~ /linux/i
+    gem 'rb-inotify' 
+    gem 'libnotify' 
+  end
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'guard-spork'
@@ -45,3 +54,4 @@ gem 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+gem "mocha", :group => :test

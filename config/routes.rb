@@ -1,4 +1,14 @@
+# -*- encoding : utf-8 -*-
 Mytube::Application.routes.draw do
+  resources :commentaries
+
+  devise_for :users
+
+  resources :videos do
+    resources :commentaries
+  end
+  root :to => "videos#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

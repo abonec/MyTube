@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Name=video_converter.rb.log
+Comment=Open '/home/abonec/Dropbox/projects/mytube/log/video_converter.rb.log'
+Icon=text-x-generic
+Name[en_US]=video_converter.rb.log
+Comment[en_US]=Open '/home/abonec/Dropbox/projects/mytube/log/video_converter.rb.log'
+Icon[en_US]=text-x-generic
+URL=file:///home/abonec/Dropbox/projects/mytube/log/video_converter.rb.log
+Type=Link

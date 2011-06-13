@@ -1,0 +1,46 @@
+<% title @video.title %>
+
+<% if @video.state == "converted"%>
+  <div id="player">Loading the player ...</div>
+  <script type="text/javascript">
+  jwplayer("player").setup({
+  flashplayer: "/jwplayer/player.swf",
+  file: "<%= @video.converted_videos.first.url %>",
+  height: 390,
+  width: 700
+  });
+  </script>
+<% else %>
+  <%= image_tag @video.thumbnail_url if @video.thumbnail_file_name %>
+<% end %>
+<p>
+  <%= @video.description %>
+</p>
+<p>
+  <% if allowed_to_user?(@video.user) %> 
+    <%= link_to "Edit", edit_video_path(@video) %> |
+    <%= link_to "Destroy", @video, :confirm => 'Are you sure?', :method => :delete %> |
+  <% end %>
+  <%= link_to "View All", videos_path %>
+
+</p>
+
+<div>
+  <% if user_signed_in? %>
+    <h3>Add a commentary:</h3>
+    <%= form_for([@video, @video.commentaries.new]) do |form| %>
+      <p>
+        <%= form.label :text %>
+        <br />
+        <%= form.text_area :body %>
+      </p>
+      <%= form.submit %>
+    <% end %>
+  <% end %>
+  <% if @video.commentaries.any? %>
+    <% @video.commentaries.each do |commentary| %>
+      <hr />
+      <%= "User #{commentary.user.email} says: #{commentary.body}" %>
+    <% end %>
+  <% end %>
+</div>
